@@ -10,3 +10,18 @@ td {
     border-radius: 50%;
     display: inline-block;
 }
+
+.arrow {
+    border: solid black;
+    border-width: 0 15px 15px 0;
+    display: inline-block;
+    padding: 15px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    margin-bottom: 10px;
+}
+
+.arrow:hover {
+    border-color: green;
+    cursor: pointer;
+}
