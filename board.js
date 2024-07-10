@@ -16,5 +16,14 @@ class Board {
         this.currentPlayer = 0; // 0 = red, 1 = yellow
     }
 
-    
+    makemove(position) {
+
+    }
+
+    hasGameFinished() {
+        return false;
+        
+    }
+
+
 }
