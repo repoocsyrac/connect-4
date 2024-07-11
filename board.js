@@ -53,9 +53,5 @@ class Board {
         return -1;
     }
 
-    getCurrentPlayer() {
-        return this.currentPlayer;
-    }
-
 
 }
