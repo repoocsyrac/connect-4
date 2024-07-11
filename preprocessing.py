@@ -31,6 +31,21 @@ while(i <= 20):
     j=0
 
 # 4 counters in a row diagonally (/)
+i = 3;
+j = 0;
+
+while(i <= 20):
+    board = i*"0"
+    while(j <= 3):
+        board = board + "1" + "00000"
+        j = j+1
+    board = board + (42-len(board)) * "0"
+    board = board[:42]
+    positions.append(board)
+    if(i%7 == 6):
+        i = i+3
+    i = i+1
+    j=0
 
 # 4 counters in a row diagonally (\)
 i = 0;
