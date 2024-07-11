@@ -25,3 +25,17 @@ td {
     border-color: green;
     cursor: pointer;
 }
+
+.game-container {
+    background-color: antiquewhite;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 750px;
+    padding: 50px;
+}
+
+.board {
+    margin: 10px;
+}
