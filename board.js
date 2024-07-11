@@ -14,6 +14,7 @@ class Board {
             [-1, -1, -1, -1, -1, -1, -1]
         ];
         this.currentPlayer = 0; // 0 = red, 1 = yellow
+        document.getElementById("currentPlayerText").textContent = "RED";
     }
 
     makemove(pos) {
@@ -30,6 +31,12 @@ class Board {
             document.getElementById((row*7 + column).toString()).style.background = "yellow";
         }
         this.currentPlayer = (this.currentPlayer + 1) % 2;
+        if(this.currentPlayer == 0) {
+            document.getElementById("currentPlayerText").textContent = "RED";
+        } else {
+            document.getElementById("currentPlayerText").textContent = "YELLOW";
+        }
+        
     }
 
     hasGameFinished() {
