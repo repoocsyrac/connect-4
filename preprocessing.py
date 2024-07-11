@@ -15,6 +15,27 @@ while(j <= 5):
     j = j + 1
     i = 0
 
-print(positions)
-
 # 4 counters in a row vertically
+i = 0;
+j = 0;
+
+while(i <= 20):
+    board = i*"0"
+    while(j <= 3):
+        board = board + "1" + "000000"
+        j = j+1
+    board = board + (42-len(board)) * "0"
+    board = board[:42]
+    positions.append(board)
+    i = i+1
+    j=0
+
+# 4 counters in a row diagonally (/)
+
+# 4 counters in a row diagonally (\)
+
+# writing to csv
+file = open("positions.csv", "w")
+for position in positions:
+    file.write(position + ",\n")
+file.close()
