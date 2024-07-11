@@ -57,6 +57,10 @@ class Board {
         // TODO: check red counters against bitmasks
         // TODO: check yellow counters against bitmasks
         // TODO: check if board is full
+        if(!this.board.includes(-1)) {
+            this.winner = 2;
+            return true;
+        }
 
         return false;
 
