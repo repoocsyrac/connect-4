@@ -2,6 +2,7 @@ class Board {
 
     board;
     currentPlayer; 
+    winner;
 
     constructor() {
         // -1=empty, 0=red, 1=yellow
@@ -14,7 +15,8 @@ class Board {
             [-1, -1, -1, -1, -1, -1, -1]
         ];
         this.currentPlayer = 0; // 0 = red, 1 = yellow
-        document.getElementById("currentPlayerText").textContent = "RED";
+        this.winner = -1; // -1=game not over, 0=red, 1=yellow, 2=draw
+        document.getElementById("gameStatus").textContent = "Current Player: RED";
     }
 
     makemove(pos) {
@@ -32,14 +34,27 @@ class Board {
         }
         this.currentPlayer = (this.currentPlayer + 1) % 2;
         if(this.currentPlayer == 0) {
-            document.getElementById("currentPlayerText").textContent = "RED";
+            document.getElementById("gameStatus").textContent = "Current Player: RED";
         } else {
-            document.getElementById("currentPlayerText").textContent = "YELLOW";
+            document.getElementById("gameStatus").textContent = "Current Player: YELLOW";
         }
-        
+        if(this.hasGameFinished()) {
+            if(this.winner == 0) {
+                document.getElementById("gameStatus").textContent = "RED WINS";
+            } else if(this.winner == 1) {
+                document.getElementById("gameStatus").textContent = "YELLOW WINS";
+            } else {
+                document.getElementById("gameStatus").textContent = "DRAW";
+            }
+            // TO-DO: show reset board button
+        }
     }
 
     hasGameFinished() {
+        // TODO: check red counters against bitmasks
+        // TODO: check yellow counters against bitmasks
+        // TODO: check if board is full
+
         return false;
 
     }
