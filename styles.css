@@ -1,7 +1,6 @@
 html {
-    background-color:cadetblue;
+    background-color: black;
 }
-
 body {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -20,7 +19,7 @@ table {
 .circle {
     height: 75px;
     width: 75px;
-    background-color: #ffffff;
+    background-color: antiquewhite;
     border-radius: 50%;
     display: inline-block;
 }
@@ -49,7 +48,7 @@ table {
     width: 750px;
     padding: 50px;
     border-radius: 10px;
-    border: solid antiquewhite 3px;
+    border: solid antiquewhite 5px;
 }
 
 .board {
