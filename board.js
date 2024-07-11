@@ -17,6 +17,7 @@ class Board {
         this.currentPlayer = 0; // 0 = red, 1 = yellow
         this.winner = -1; // -1=game not over, 0=red, 1=yellow, 2=draw
         document.getElementById("gameStatus").textContent = "Current Player: RED";
+        document.getElementById("main-border").style.borderColor = "red";
     }
 
     makemove(pos) {
@@ -35,8 +36,10 @@ class Board {
         this.currentPlayer = (this.currentPlayer + 1) % 2;
         if(this.currentPlayer == 0) {
             document.getElementById("gameStatus").textContent = "Current Player: RED";
+            document.getElementById("main-border").style.borderColor = "red";
         } else {
             document.getElementById("gameStatus").textContent = "Current Player: YELLOW";
+            document.getElementById("main-border").style.borderColor = "yellow";
         }
         if(this.hasGameFinished()) {
             if(this.winner == 0) {
