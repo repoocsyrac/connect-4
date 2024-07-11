@@ -49,7 +49,7 @@ class Board {
                 document.getElementById("gameStatus").textContent = "------RED WINS------";
             } else if(this.winner == 1) {
                 document.getElementById("gameStatus").textContent = "------YELLOW WINS------";
-            } else {
+            } else if(this.winner == 2) {
                 document.getElementById("gameStatus").textContent = "------DRAW------";
             }
             // TO-DO: show reset board button
@@ -57,33 +57,38 @@ class Board {
     }
 
     hasGameFinished() {
-        // TODO: check red counters against bitmasks
         var currentRed = this.getBinaryString("0");
         for(let i=0; i<this.bitmasks.length; i++) {
             let count=0;
-            for(let j=0; j<currentRed.length; i++) {
-                if(currentRed[j] == this.bitmasks[i].charAt(j)) {
+            let mask = this.bitmasks[i];
+            for(let j=0; j<mask.length; j++) {
+                if(currentRed.charAt(j) == mask.charAt(j) & currentRed.charAt(j) == "1") {
                     count++;
                 }
             }
-            if(count == 4) {
+            if(count >= 4) {
                 this.winner=0;
                 return true;
             }
         }
         
-        // TODO: check yellow counters against bitmasks
-        /*var currentYellow = this.getBinaryString("1");
-        for(var i=0; i<this.bitmasks.length; i++) {
-            // TO-DO: write regex for matching 4 1's
-            if((currentYellow & this.bitmasks[i]).test("[0,1]*(1[0,1]*){4}[0,1]*")) {
-                this.winner = 1;
+        var currentYellow = this.getBinaryString("1");
+        for(let i=0; i<this.bitmasks.length; i++) {
+            let count=0;
+            let mask = this.bitmasks[i];
+            for(let j=0; j<mask.length; j++) {
+                if(currentYellow.charAt(j) == mask.charAt(j) & currentYellow.charAt(j) == "1") {
+                    count++;
+                }
+            }
+            if(count >= 4) {
+                this.winner=1;
                 return true;
             }
-        }*/
+        }
 
         // Checks if board is full
-        if(!this.board.includes(-1)) {
+        if(!this.board.toString().includes("-1")) {
             this.winner = 2;
             return true;
         }
