@@ -2,6 +2,7 @@ td {
     padding: 7.5px;
     background-color:blue;
     border: none;
+    border-radius: 2px;
 }
 
 table {
@@ -39,6 +40,7 @@ table {
     flex-wrap: wrap;
     width: 750px;
     padding: 50px;
+    border-radius: 10px;
 }
 
 .board {
