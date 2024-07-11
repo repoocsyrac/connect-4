@@ -18,10 +18,13 @@ class Board {
 
     makemove(pos) {
         var column = pos%7;
+        var row = this.determineRow(column);
         if(this.currentPlayer == 0) {
-            document.getElementById((35 + column).toString()).style.background = "red";
+            this.board[row][column] = 0;
+            document.getElementById((row*7 + column).toString()).style.background = "red";
         } else {
-            document.getElementById((35 + column).toString()).style.background = "yellow";
+            this.board[row][column] = 1;
+            document.getElementById((row*7 + column).toString()).style.background = "yellow";
         }
         this.currentPlayer = (this.currentPlayer + 1) % 2;
     }
@@ -29,6 +32,15 @@ class Board {
     hasGameFinished() {
         return false;
 
+    }
+
+    determineRow(column) {
+        for (let i = 5; i >= 0; i--) {
+            if(this.board[i][column] == -1) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     getCurrentPlayer() {
