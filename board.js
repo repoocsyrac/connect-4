@@ -4,6 +4,7 @@ class Board {
     currentPlayer; 
     winner;
     bitmasks;
+    flag; // false if game hasnt finished yet
 
     constructor() {
         // -1=empty, 0=red, 1=yellow
@@ -20,9 +21,13 @@ class Board {
         document.getElementById("gameStatus").textContent = "Current Player: RED";
         document.getElementById("main-border").style.borderColor = "red";
         this.loadBitMasks();
+        this.flag = false; 
     }
 
     makemove(pos) {
+        if(this.flag) {
+            return;
+        }
         var column = pos%7;
         var row = this.determineRow(column);
         if(row == -1) {
@@ -51,7 +56,6 @@ class Board {
             } else if(this.winner == 2) {
                 document.getElementById("gameStatus").textContent = "------DRAW------";
             }
-            // TO-DO: show reset board button
         }
     }
 
@@ -67,6 +71,7 @@ class Board {
             }
             if(count >= 4) {
                 this.winner=0;
+                this.flag = true;
                 return true;
             }
         }
@@ -82,6 +87,7 @@ class Board {
             }
             if(count >= 4) {
                 this.winner=1;
+                this.flag = true;
                 return true;
             }
         }
@@ -89,6 +95,7 @@ class Board {
         // Checks if board is full
         if(!this.board.toString().includes("-1")) {
             this.winner = 2;
+            this.flag = true;
             return true;
         }
 
