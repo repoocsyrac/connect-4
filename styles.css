@@ -1,6 +1,11 @@
 td {
     padding: 7.5px;
     background-color:blue;
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
 }
 
 .circle {
