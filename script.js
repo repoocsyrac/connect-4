@@ -1,5 +1,5 @@
 var board = new Board();
 
-function makeMove() {
-    console.log("test");
+function makeMove(pos) {
+    board.makemove(pos);
 }
