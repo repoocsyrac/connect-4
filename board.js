@@ -40,11 +40,11 @@ class Board {
         }
         if(this.hasGameFinished()) {
             if(this.winner == 0) {
-                document.getElementById("gameStatus").textContent = "RED WINS";
+                document.getElementById("gameStatus").textContent = "------RED WINS------";
             } else if(this.winner == 1) {
-                document.getElementById("gameStatus").textContent = "YELLOW WINS";
+                document.getElementById("gameStatus").textContent = "------YELLOW WINS------";
             } else {
-                document.getElementById("gameStatus").textContent = "DRAW";
+                document.getElementById("gameStatus").textContent = "------DRAW------";
             }
             // TO-DO: show reset board button
         }
