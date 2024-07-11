@@ -51,10 +51,13 @@ class Board {
         if(this.hasGameFinished()) {
             if(this.winner == 0) {
                 document.getElementById("gameStatus").textContent = "------RED WINS------";
+                document.getElementById("main-border").style.borderColor = "red";
             } else if(this.winner == 1) {
                 document.getElementById("gameStatus").textContent = "------YELLOW WINS------";
+                document.getElementById("main-border").style.borderColor = "yellow";
             } else if(this.winner == 2) {
                 document.getElementById("gameStatus").textContent = "------DRAW------";
+                document.getElementById("main-border").style.borderColor = "antiquewhite";
             }
         }
     }
