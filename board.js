@@ -19,6 +19,9 @@ class Board {
     makemove(pos) {
         var column = pos%7;
         var row = this.determineRow(column);
+        if(row == -1) {
+            return;
+        }
         if(this.currentPlayer == 0) {
             this.board[row][column] = 0;
             document.getElementById((row*7 + column).toString()).style.background = "red";
