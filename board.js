@@ -20,7 +20,6 @@ class Board {
         document.getElementById("gameStatus").textContent = "Current Player: RED";
         document.getElementById("main-border").style.borderColor = "red";
         this.loadBitMasks();
-        console.log(this.bitmasks);
     }
 
     makemove(pos) {
