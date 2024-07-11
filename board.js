@@ -3,6 +3,7 @@ class Board {
     board;
     currentPlayer; 
     winner;
+    bitmasks;
 
     constructor() {
         // -1=empty, 0=red, 1=yellow
@@ -18,6 +19,7 @@ class Board {
         this.winner = -1; // -1=game not over, 0=red, 1=yellow, 2=draw
         document.getElementById("gameStatus").textContent = "Current Player: RED";
         document.getElementById("main-border").style.borderColor = "red";
+        this.loadBitMasks();
     }
 
     makemove(pos) {
@@ -55,8 +57,16 @@ class Board {
 
     hasGameFinished() {
         // TODO: check red counters against bitmasks
+        for(var i=0; i<this.bitmasks.length; i++) {
+            // TO-DO: sort out string representation of board, write regex for matching 4 1's
+            if((~this.board.toString() & this.bitmasks[i]).includes('')) {
+
+            }
+        }
+        
         // TODO: check yellow counters against bitmasks
-        // TODO: check if board is full
+        
+        // Checks if board is full
         if(!this.board.includes(-1)) {
             this.winner = 2;
             return true;
@@ -73,6 +83,14 @@ class Board {
             }
         }
         return -1;
+    }
+
+    loadBitMasks() {
+        this.bitmasks = [];
+        fetch('positions.csv')
+        .then(response => response.text())
+        .then(text => text.split(","))
+        .then(text => this.bitmasks.push(text))
     }
 
 

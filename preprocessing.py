@@ -37,5 +37,5 @@ while(i <= 20):
 # writing to csv
 file = open("positions.csv", "w")
 for position in positions:
-    file.write(position + ",\n")
+    file.write(position + ",")
 file.close()
